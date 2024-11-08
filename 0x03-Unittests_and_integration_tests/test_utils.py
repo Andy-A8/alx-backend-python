@@ -27,8 +27,7 @@
 
 import unittest
 from parameterized import parameterized
-from utils import access_nested_map
-
+from utils import access_nested_map, get_json
 
 class TestAccessNestedMap(unittest.TestCase):
     """ class for testing access_nested_map function """
@@ -55,3 +54,6 @@ class TestAccessNestedMap(unittest.TestCase):
         """ Test that the method returns the expected exception """
         with self.assertRaises(expected_output) as context:
             access_nested_map(nested_map, path)
+
+class TestGetJson(unittest.TestCase):
+    
