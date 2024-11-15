@@ -27,15 +27,14 @@ class TestGithubOrgClient(unittest.TestCase):
         "client.get_json",
     )
     def test_org(self, org: str, expected_response: Dict,
-    
-    """ Test that GithubOrgClient.org returns the correct value """
-        mocked_function.return_value = MagicMock(
-            return_value=expected_response)
-        goclient = GithubOrgClient(org)
-        self.assertEqual(goclient.org(), expected_response)
-        mocked_function.assert_called_once_with(
-            "https://api.github.com/orgs/{}".format(org)
-        )
+            """ Test that GithubOrgClient.org returns the correct value """
+            mocked_function.return_value = MagicMock(
+                return_value=expected_response)
+            goclient = GithubOrgClient(org)
+            self.assertEqual(goclient.org(), expected_response)
+            mocked_function.assert_called_once_with(
+                "https://api.github.com/orgs/{}".format(org)
+                )
 
     def test_public_repos_url(self) -> None:
         """ Test that the result of _public_repos_url is the expected one
